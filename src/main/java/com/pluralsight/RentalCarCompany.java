@@ -24,7 +24,7 @@ public class RentalCarCompany {
         return scanner.nextInt();
     }
 
-
+    // method to ask user for a toll tag
     public static String electronicTollTag(Scanner scanner){
         System.out.println("Do you want an electronic toll tag at $3.95/day");
         return scanner.nextLine();
