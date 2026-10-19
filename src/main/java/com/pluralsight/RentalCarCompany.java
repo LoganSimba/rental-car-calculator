@@ -16,6 +16,15 @@ public class RentalCarCompany {
             tollTag = 3.95;
         }
 
+
+        // Initializing toll fee, and checking if they want it
+        double gpsFee = 1;
+        if(gps(scanner).equalsIgnoreCase("Yes")){
+            gpsFee = 2.95;
+        }
+
+
+
     }
 
     //created a method to pask user the days he will rent the car
@@ -29,6 +38,12 @@ public class RentalCarCompany {
         System.out.println("Do you want an electronic toll tag at $3.95/day");
         return scanner.nextLine();
 
+    }
+
+    // method to ask user if they want a gps
+    public static String gps(Scanner scanner){
+        System.out.println("Would you like a GPS (Yes/NO): ");
+        return scanner.nextLine();
     }
 
 }
