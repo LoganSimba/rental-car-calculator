@@ -6,7 +6,7 @@ public class RentalCarCompany {
     public static void main(String[] args) {
         //create a scanner
         Scanner scanner = new Scanner(System.in);
-        numberOfDays(scanner);
+
 
         //remove the space in the buffer
         scanner.nextLine();
@@ -29,9 +29,25 @@ public class RentalCarCompany {
             roadSideFee = 3.95;
         }
 
+        // initiate surcharge and check if the surcharge will apply based on their age
+        double surcharge = 0;
+        if(age(scanner) < 25){
+            surcharge = 0.3;
+        }
+
+
 
 
     }
+
+    // method to ask user what day they want to pick up their car
+    public static String pickupDate(Scanner scanner){
+        System.out.println("What day you want to pick the car up: ");
+        return scanner.nextLine();
+    }
+
+
+
 
     //created a method to pask user the days he will rent the car
     public static int numberOfDays(Scanner scanner){
