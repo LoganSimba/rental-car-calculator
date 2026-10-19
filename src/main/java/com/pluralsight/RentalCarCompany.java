@@ -23,6 +23,12 @@ public class RentalCarCompany {
             gpsFee = 2.95;
         }
 
+        //Initializing road Side assistance and checking if user needs it to set the price
+        double roadSideFee = 1;
+        if(roadSideAssistance(scanner).equalsIgnoreCase("Yes")){
+            roadSideFee = 3.95;
+        }
+
 
 
     }
@@ -45,5 +51,14 @@ public class RentalCarCompany {
         System.out.println("Would you like a GPS (Yes/NO): ");
         return scanner.nextLine();
     }
+
+    //method to ask user if they want the road side assistance
+    public static String roadSideAssistance(Scanner scanner){
+        System.out.println("Would you like road side assistance: ");
+        return scanner.nextLine();
+
+    }
+
+
 
 }
