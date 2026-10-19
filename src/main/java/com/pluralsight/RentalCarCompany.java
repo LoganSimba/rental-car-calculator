@@ -8,12 +8,27 @@ public class RentalCarCompany {
         Scanner scanner = new Scanner(System.in);
         numberOfDays(scanner);
 
+        //remove the space in the buffer
+        scanner.nextLine();
+
+        double tollTag = 1;
+        if(electronicTollTag(scanner).equalsIgnoreCase("Yes")){
+            tollTag = 3.95;
+        }
+
     }
 
     //created a method to pask user the days he will rent the car
     public static int numberOfDays(Scanner scanner){
         System.out.printf("How many days will you rent your car: \n");
         return scanner.nextInt();
+    }
+
+
+    public static String electronicTollTag(Scanner scanner){
+        System.out.println("Do you want an electronic toll tag at $3.95/day");
+        return scanner.nextLine();
+
     }
 
 }
