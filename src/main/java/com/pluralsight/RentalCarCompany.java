@@ -59,6 +59,11 @@ public class RentalCarCompany {
 
     }
 
+    // method to ask user their age
+    public static int age(Scanner scanner) {
 
+        System.out.println("What is your age: ");
+        return scanner.nextInt();
+    }
 
-}
+    }
