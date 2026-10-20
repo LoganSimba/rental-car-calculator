@@ -10,16 +10,20 @@ public class RentalCarCompany {
 
 
 
-        //remove the space in the buffer
-        scanner.nextLine();
 
-        String Tolls = electronicTollTag(scanner);
+
+        int days = numberOfDays(scanner);
+        scanner.nextLine();
+        String tolls = electronicTollTag(scanner);
+
+
         String gpsChoice = gps(scanner);
         String roadSide = roadSideAssistance(scanner);
 
 
-
-
+        // stored the method to find optional cost in a variable and printed it
+        double optional = optionalCost(tolls, gpsChoice, roadSide, days);
+        System.out.printf("Your optional package is $%.2f for %d days", optional, days);
 
 
 
@@ -36,26 +40,26 @@ public class RentalCarCompany {
 
     //created a method to pask user the days he will rent the car
     public static int numberOfDays(Scanner scanner){
-        System.out.printf("How many days will you rent your car: \n");
+        System.out.print("How many days will you rent your car: ");
         return scanner.nextInt();
     }
 
     // method to ask user for a toll tag
     public static String electronicTollTag(Scanner scanner){
-        System.out.println("Do you want an electronic toll tag at $3.95/day");
+        System.out.print("Do you want an electronic toll tag at $3.95/day (Yes/No): ");
         return scanner.nextLine();
 
     }
 
     // method to ask user if they want a gps
     public static String gps(Scanner scanner){
-        System.out.println("Would you like a GPS (Yes/NO): ");
+        System.out.print("Would you like a GPS (Yes/NO): ");
         return scanner.nextLine();
     }
 
     //method to ask user if they want the road side assistance
     public static String roadSideAssistance(Scanner scanner){
-        System.out.println("Would you like road side assistance: ");
+        System.out.print("Would you like road side assistance: ");
         return scanner.nextLine();
 
     }
@@ -63,13 +67,27 @@ public class RentalCarCompany {
     // method to ask user their age
     public static int age(Scanner scanner) {
 
-        System.out.println("What is your age: ");
+        System.out.print("What is your age: ");
         return scanner.nextInt();
     }
 
+    //Added a method to calculate daily cost of the optional packages
+    public static double optionalCost(String toll, String gpsChoice, String roadSide, int days){
+        double dailyCost = 0.0;
 
-    public static double voidtotalCost(){
+        if(toll.equalsIgnoreCase("yes")){
+            dailyCost += 3.95;
+        }
 
+        if(gpsChoice.equalsIgnoreCase("yes")){
+            dailyCost += 2.95;
+        }
+
+        if(roadSide.equalsIgnoreCase("yes")){
+            dailyCost += 3.95;
+        }
+
+        return dailyCost * days;
 
     }
 
