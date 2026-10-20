@@ -28,18 +28,15 @@ public class RentalCarCompany {
         double surcharge = underageSurcharge(userAge, basicRental);
         double total = basicRental + optional + surcharge;
 
+        //call the receipt method and print it
+        printReceipt(pickup, basicRental, optional, surcharge, total);
 
-        System.out.printf("Pickup date: %s%n", pickup);
-        System.out.printf("Basic car rental: $%.2f%n", basicRental);
-        System.out.printf("Options: $%.2f%n", optional);
-        System.out.printf("Underage surcharge: $%.2f%n", surcharge);
-        System.out.printf("Total cost: $%.2f%n", total);
-
+        scanner.close();
     }
 
     // method to ask user what day they want to pick up their carf
     public static String pickupDate(Scanner scanner){
-        System.out.print("What day you want to pick the car up (Monday-Friday): ");
+        System.out.print("When day you want to pick the car up (Monday-Friday): ");
         return scanner.nextLine();
     }
 
@@ -106,5 +103,19 @@ public class RentalCarCompany {
         return dailyCost * days;
 
     }
+
+
+    // added method to print receipt
+    public static void printReceipt(String pickup, double basicRental, double optional,
+                                    double surcharge, double total) {
+        System.out.println("\n----- Rental Summary -----");
+        System.out.printf("Pickup date: %s%n", pickup);
+        System.out.printf("Basic car rental: $%.2f%n", basicRental);
+        System.out.printf("Options: $%.2f%n", optional);
+        System.out.printf("Underage surcharge: $%.2f%n", surcharge);
+        System.out.printf("Total cost: $%.2f%n", total);
+    }
+
+
 
     }
