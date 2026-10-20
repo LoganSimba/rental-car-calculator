@@ -6,41 +6,26 @@ public class RentalCarCompany {
     public static void main(String[] args) {
         //create a scanner
         Scanner scanner = new Scanner(System.in);
+        double basePrice = 29.99;
+
 
 
         //remove the space in the buffer
         scanner.nextLine();
 
-        double tollTag = 1;
-        if(electronicTollTag(scanner).equalsIgnoreCase("Yes")){
-            tollTag = 3.95;
-        }
+        String Tolls = electronicTollTag(scanner);
+        String gpsChoice = gps(scanner);
+        String roadSide = roadSideAssistance(scanner);
 
 
-        // Initializing toll fee, and checking if they want it
-        double gpsFee = 1;
-        if(gps(scanner).equalsIgnoreCase("Yes")){
-            gpsFee = 2.95;
-        }
 
-        //Initializing road Side assistance and checking if user needs it to set the price
-        double roadSideFee = 1;
-        if(roadSideAssistance(scanner).equalsIgnoreCase("Yes")){
-            roadSideFee = 3.95;
-        }
-
-        // initiate surcharge and check if the surcharge will apply based on their age
-        double surcharge = 0;
-        if(age(scanner) < 25){
-            surcharge = 0.3;
-        }
 
 
 
 
     }
 
-    // method to ask user what day they want to pick up their car
+    // method to ask user what day they want to pick up their carf
     public static String pickupDate(Scanner scanner){
         System.out.println("What day you want to pick the car up: ");
         return scanner.nextLine();
@@ -80,6 +65,12 @@ public class RentalCarCompany {
 
         System.out.println("What is your age: ");
         return scanner.nextInt();
+    }
+
+
+    public static double voidtotalCost(){
+
+
     }
 
     }
