@@ -9,29 +9,34 @@ public class RentalCarCompany {
         double basePrice = 29.99;
 
 
-
-
-
+        // Created variables to store what the methods returned
+        String pickup = pickupDate(scanner);
         int days = numberOfDays(scanner);
         scanner.nextLine();
+
         String tolls = electronicTollTag(scanner);
-
-
         String gpsChoice = gps(scanner);
         String roadSide = roadSideAssistance(scanner);
+        int userAge = age(scanner);
+
 
 
         // stored the method to find optional cost in a variable and printed it
         double optional = optionalCost(tolls, gpsChoice, roadSide, days);
-        System.out.printf("Your optional package is $%.2f for %d days", optional, days);
+        System.out.printf("Your package is $%.2f for %d days %n", optional, days);
 
+        // calculate costs
+        double basicRental = basePrice * days;
+        double surcharge = underageSurcharge(userAge, basicRental);
+        double total = basicRental + optional + surcharge;
+        System.out.printf("Yout total is: %.2f", total);
 
 
     }
 
     // method to ask user what day they want to pick up their carf
     public static String pickupDate(Scanner scanner){
-        System.out.println("What day you want to pick the car up: ");
+        System.out.print("What day you want to pick the car up (Monday-Friday): ");
         return scanner.nextLine();
     }
 
@@ -59,7 +64,7 @@ public class RentalCarCompany {
 
     //method to ask user if they want the road side assistance
     public static String roadSideAssistance(Scanner scanner){
-        System.out.print("Would you like road side assistance: ");
+        System.out.print("Would you like road side assistance(Yes/no): ");
         return scanner.nextLine();
 
     }
@@ -70,6 +75,17 @@ public class RentalCarCompany {
         System.out.print("What is your age: ");
         return scanner.nextInt();
     }
+
+
+
+    // method to calculate the 30% surcharge for drivers under 25
+    public static double underageSurcharge(int age, double basicRental) {
+        if (age < 25) {
+            return basicRental * 0.30;
+        }
+        return 0;
+    }
+
 
     //Added a method to calculate daily cost of the optional packages
     public static double optionalCost(String toll, String gpsChoice, String roadSide, int days){
