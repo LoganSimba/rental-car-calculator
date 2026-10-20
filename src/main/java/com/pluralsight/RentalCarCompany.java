@@ -20,17 +20,20 @@ public class RentalCarCompany {
         int userAge = age(scanner);
 
 
-
         // stored the method to find optional cost in a variable and printed it
         double optional = optionalCost(tolls, gpsChoice, roadSide, days);
-        System.out.printf("Your package is $%.2f for %d days %n", optional, days);
 
         // calculate costs
         double basicRental = basePrice * days;
         double surcharge = underageSurcharge(userAge, basicRental);
         double total = basicRental + optional + surcharge;
-        System.out.printf("Yout total is: %.2f", total);
 
+
+        System.out.printf("Pickup date: %s%n", pickup);
+        System.out.printf("Basic car rental: $%.2f%n", basicRental);
+        System.out.printf("Options: $%.2f%n", optional);
+        System.out.printf("Underage surcharge: $%.2f%n", surcharge);
+        System.out.printf("Total cost: $%.2f%n", total);
 
     }
 
@@ -39,8 +42,6 @@ public class RentalCarCompany {
         System.out.print("What day you want to pick the car up (Monday-Friday): ");
         return scanner.nextLine();
     }
-
-
 
 
     //created a method to pask user the days he will rent the car
@@ -66,7 +67,6 @@ public class RentalCarCompany {
     public static String roadSideAssistance(Scanner scanner){
         System.out.print("Would you like road side assistance(Yes/no): ");
         return scanner.nextLine();
-
     }
 
     // method to ask user their age
